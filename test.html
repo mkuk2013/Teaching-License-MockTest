@@ -1,0 +1,2004 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Teaching License Mock Test</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+    crossorigin="anonymous"
+  />
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/html2pdf.js@0.10.1/dist/html2pdf.bundle.min.js"></script>
+  
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <style>
+    :root {
+      --primary: #6366f1;
+      --primary-dark: #4f46e5;
+      --secondary: #8b5cf6;
+      --accent: #0ea5e9;
+      --success: #10b981;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      --dark: #1e293b;
+      --darker: #0f172a;
+      --light: #f8fafc;
+      --gray: #94a3b8;
+      --light-gray: #e2e8f0;
+      --card-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    html, body {
+      height: 100%;
+      overflow: auto;
+    }
+
+    body {
+      background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%);
+      color: var(--dark);
+      padding: 20px;
+      min-height: 100vh;
+    }
+
+    .dark body {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: var(--light);
+    }
+
+    .app-container {
+      width: 100%;
+      max-width: 1200px;
+      display: flex;
+      flex-direction: column;
+      margin: 0 auto;
+      min-height: calc(100vh - 40px);
+    }
+
+    .header-gradient {
+      background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+      border-radius: 16px;
+      box-shadow: var(--card-shadow);
+      flex-shrink: 0;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .dark .header-gradient {
+      color: var(--light);
+    }
+
+    .main-content {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+
+    .quiz-container {
+      width: 100%;
+      max-width: 800px;
+    }
+
+    .card-custom {
+      border-radius: 16px;
+      box-shadow: var(--card-shadow);
+      border: none;
+      transition: var(--transition);
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .dark .card-custom {
+      background: rgba(30, 41, 59, 0.9);
+      color: var(--light);
+    }
+
+    .card-body-custom {
+      overflow-y: auto;
+      flex: 1;
+      padding: 1.5rem;
+    }
+
+    .btn-custom {
+      border-radius: 12px;
+      padding: 12px 20px;
+      font-weight: 500;
+      transition: var(--transition);
+      border: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .dark .btn-custom {
+      color: var(--light);
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn-success {
+      background: var(--success);
+      color: white;
+    }
+
+    .btn-success:hover {
+      background: #059669;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn-warning {
+      background: var(--warning);
+      color: white;
+    }
+
+    .btn-warning:hover {
+      background: #d97706;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn-danger {
+      background: var(--danger);
+      color: white;
+    }
+
+    .btn-danger:hover {
+      background: #dc2626;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn-outline-secondary {
+      border: 2px solid var(--gray);
+      color: var(--dark);
+      background: transparent;
+    }
+
+    .dark .btn-outline-secondary {
+      color: var(--light);
+      border-color: #475569;
+    }
+
+    .btn-outline-secondary:hover {
+      background: var(--light-gray);
+      transform: translateY(-2px);
+    }
+
+    .dark .btn-outline-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .option-card {
+      border-radius: 12px;
+      padding: 18px;
+      cursor: pointer;
+      transition: var(--transition);
+      border: 2px solid transparent;
+      background: rgba(255, 255, 255, 0.7);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      margin-bottom: 10px;
+    }
+
+    .dark .option-card {
+      background: rgba(30, 41, 59, 0.7);
+    }
+
+    .option-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      border-color: var(--primary);
+    }
+
+    .option-card.selected {
+      border-color: var(--primary);
+      background: rgba(99, 102, 241, 0.1);
+      box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2);
+    }
+
+    .dark .option-card.selected {
+      background: rgba(99, 102, 241, 0.2);
+      color: var(--light);
+    }
+
+    .palette-btn {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      transition: var(--transition);
+      border: 2px solid transparent;
+      flex-shrink: 0;
+      background: rgba(255, 255, 255, 0.7);
+      color: var(--dark);
+      font-size: 14px;
+      margin: 0 3px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    .dark .palette-btn {
+      background: rgba(30, 41, 59, 0.7);
+      color: var(--light);
+    }
+
+    .palette-btn.btn-primary {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    .palette-btn.btn-success {
+      background: var(--success);
+      color: white;
+      border-color: var(--success);
+    }
+
+    .palette-btn.btn-danger {
+      background: var(--danger);
+      color: white;
+      border-color: var(--danger);
+    }
+
+    .palette-btn.btn-outline-secondary {
+      background: transparent;
+      border-color: var(--gray);
+      color: var(--gray);
+    }
+
+    .dark .palette-btn.btn-outline-secondary {
+      background: transparent;
+      border-color: var(--gray);
+      color: var(--gray);
+    }
+
+    .palette-btn.btn-light {
+      background: rgba(255, 255, 255, 0.9);
+      border-color: #cbd5e1;
+      color: var(--dark);
+    }
+
+    .dark .palette-btn.btn-light {
+      background: rgba(30, 41, 59, 0.9);
+      border-color: #475569;
+      color: var(--light);
+    }
+
+    .palette-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .question-palette {
+      display: flex;
+      overflow-x: auto;
+      padding: 12px 0;
+      scrollbar-width: thin;
+      background: rgba(255, 255, 255, 0.5);
+      border-radius: 12px;
+      padding: 12px;
+      margin: 15px 0;
+    }
+
+    .dark .question-palette {
+      background: rgba(30, 41, 59, 0.5);
+    }
+
+    .question-palette::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    .question-palette::-webkit-scrollbar-thumb {
+      background: var(--gray);
+      border-radius: 3px;
+    }
+
+    .question-text {
+      color: var(--dark);
+      font-size: 1.2rem;
+      line-height: 1.6;
+      font-weight: 500;
+      margin-bottom: 25px;
+    }
+
+    .dark .question-text {
+      color: var(--light);
+    }
+
+    .passage-content {
+      background-color: rgba(248, 249, 250, 0.8) !important;
+      border-color: var(--primary) !important;
+    }
+
+    .dark .passage-content {
+      background-color: rgba(30, 41, 59, 0.8) !important;
+      border-color: var(--primary) !important;
+      color: var(--light);
+    }
+
+    .constructed-response {
+      background-color: rgba(248, 249, 250, 0.5);
+      border-left: 4px solid var(--primary);
+      padding: 15px;
+      border-radius: 0 8px 8px 0;
+      margin: 15px 0;
+    }
+
+    .dark .constructed-response {
+      background-color: rgba(30, 41, 59, 0.5);
+      color: var(--light);
+    }
+
+    .math-question {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 1.1rem;
+    }
+
+    .sindhi-question, .urdu-question {
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+
+    .time-remaining {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--dark);
+      background: rgba(255, 255, 255, 0.7);
+      padding: 8px 15px;
+      border-radius: 50px;
+      display: inline-flex;
+      align-items: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    .dark .time-remaining {
+      background: rgba(30, 41, 59, 0.7);
+      color: var(--light);
+    }
+
+    .time-remaining i {
+      margin-right: 8px;
+      color: var(--primary);
+    }
+
+    .progress-custom {
+      height: 14px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.3);
+      margin: 15px 0;
+    }
+
+    .dark .progress-custom {
+      background: rgba(30, 41, 59, 0.3);
+    }
+
+    .progress-bar-custom {
+      border-radius: 10px;
+      background: linear-gradient(90deg, var(--accent) 0%, var(--primary) 100%);
+      height: 100%;
+    }
+
+    .sticky-actions {
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid rgba(0, 0, 0, 0.06);
+      margin-top: 20px;
+    }
+
+    .dark .sticky-actions {
+      background: rgba(30, 41, 59, 0.85);
+      border-color: rgba(255, 255, 255, 0.08);
+      color: var(--light);
+    }
+
+    .result-card {
+      border-radius: 16px;
+      padding: 25px;
+      text-align: center;
+      box-shadow: var(--card-shadow);
+      transition: var(--transition);
+      margin-bottom: 20px;
+    }
+
+    .dark .result-card {
+      color: var(--light);
+    }
+
+    .result-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .pass-card {
+      background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
+      color: #1c1917;
+    }
+
+    .fail-card {
+      background: linear-gradient(135deg, #f87171 0%, #ef4444 100%);
+      color: white;
+    }
+
+    .question-counter {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--dark);
+      background: rgba(99, 102, 241, 0.1);
+      padding: 8px 20px;
+      border-radius: 50px;
+      display: inline-block;
+    }
+
+    .dark .question-counter {
+      color: var(--light);
+      background: rgba(99, 102, 241, 0.2);
+    }
+
+    .footer-custom {
+      border-radius: 16px;
+      margin-top: 20px;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(10px);
+      flex-shrink: 0;
+      text-align: center;
+      color: var(--dark);
+    }
+
+    .dark .footer-custom {
+      background: rgba(30, 41, 59, 0.7);
+      color: var(--light);
+    }
+
+    .password-input {
+      border-radius: 12px;
+      padding: 15px 20px;
+      border: 2px solid #cbd5e1;
+      background: rgba(255, 255, 255, 0.7);
+      font-size: 1rem;
+      color: var(--dark);
+      margin-bottom: 20px;
+      transition: var(--transition);
+    }
+
+    .dark .password-input {
+      border-color: #334155;
+      background: rgba(30, 41, 59, 0.5);
+      color: white;
+    }
+
+    .dark .password-input::placeholder {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .password-input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.2);
+    }
+
+    .theme-toggle {
+      background: rgba(255, 255, 255, 0.2);
+      border: none;
+      border-radius: 50%;
+      width: 45px;
+      height: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      transition: var(--transition);
+      font-size: 1.2rem;
+    }
+
+    .theme-toggle:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: rotate(20deg);
+    }
+
+    .section-title {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: var(--dark);
+      position: relative;
+      padding-bottom: 12px;
+    }
+
+    .dark .section-title {
+      color: var(--light);
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 70px;
+      height: 4px;
+      background: var(--primary);
+      border-radius: 2px;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      margin-right: 20px;
+      margin-bottom: 12px;
+      font-size: 0.9rem;
+    }
+
+    .legend-color {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      margin-right: 10px;
+      border: 2px solid transparent;
+    }
+
+    .small, .text-muted {
+      color: var(--dark);
+    }
+
+    .dark .small, .dark .text-muted {
+      color: var(--light);
+    }
+
+    .text-white-50 {
+      color: rgba(255, 255, 255, 0.5) !important;
+    }
+
+    #timeRemaining {
+      font-weight: 700;
+      color: var(--dark);
+    }
+
+    .dark #timeRemaining {
+      color: var(--light);
+    }
+
+    #progressText {
+      font-weight: 700;
+      color: var(--dark);
+    }
+
+    .dark #progressText {
+      color: var(--light);
+    }
+
+    .modal-content {
+      border-radius: 16px;
+      border: none;
+      box-shadow: var(--card-shadow);
+    }
+
+    .dark .modal-content {
+      background: var(--darker);
+      color: var(--light);
+    }
+
+    .modal-header {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .dark .modal-header {
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .modal-footer {
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .dark .modal-footer {
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 10px;
+      }
+      
+      .header-gradient {
+        border-radius: 12px;
+        padding: 15px;
+      }
+      
+      .card-custom {
+        border-radius: 12px;
+      }
+      
+      .sticky-actions {
+        border-radius: 0 0 12px 12px;
+        padding: 15px;
+      }
+      
+      .palette-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 0.8rem;
+      }
+      
+      .card-body-custom {
+        padding: 1rem;
+      }
+      
+      .question-text {
+        font-size: 1.1rem;
+      }
+      
+      .dark body, .dark .card-custom, .dark .option-card, 
+      .dark .question-text, .dark .question-counter, 
+      .dark .footer-custom, .dark .section-title,
+      .dark .small, .dark .text-muted {
+        color: var(--light) !important;
+      }
+      
+      .btn-custom {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-container">
+    <header class="header-gradient">
+      <div class="d-flex justify-content-between align-items-center">
+        <div>
+          <h1 class="h4 text-white fw-bold mb-1"><i class="bi bi-mortarboard-fill me-2"></i>Teaching License Mock Test</h1>
+          <p class="text-white-50 small mb-0"><i class="bi bi-book me-1"></i>Professional mock test • 69 questions • 69 minutes</p>
+        </div>
+        <div class="d-flex align-items-center gap-3">
+          <button id="themeToggle" class="theme-toggle">
+            <i class="bi bi-moon-fill"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section id="passwordGate" class="row justify-content-center">
+        <div class="col-12 col-md-8 col-lg-6">
+          <div class="card card-custom">
+            <div class="card-body p-5">
+              <div class="text-center mb-5">
+                <div class="bg-primary bg-opacity-10 rounded-circle d-inline-flex p-4 mb-4">
+                  <i class="bi bi-shield-lock text-primary fs-1"></i>
+                </div>
+                <h2 class="h4 mb-3"><i class="bi bi-key me-2"></i>Enter Password to Start</h2>
+               
+              </div>
+              <div class="mb-4">
+                <div class="input-group">
+                  <span class="input-group-text" style="font-size: 1.5rem; padding: 0.75rem; height: 59px;"><i class="bi bi-key" style="font-size: 2rem;"></i></span>
+                  <input id="passwordInput" type="password" class="form-control password-input py-3" placeholder="Enter password" />
+                </div>
+              </div>
+              <button id="startBtn" class="btn btn-custom btn-primary w-100">Start Test</button>
+              <div class="alert alert-info mt-4 d-flex align-items-center" role="alert">
+                <i class="bi bi-info-circle-fill me-2"></i>
+                <div>
+                  For access password, please contact on WhatsApp: 
+                  <a href="https://wa.me/03480358640" target="_blank" class="alert-link fw-bold">
+                    <i class="bi bi-whatsapp me-1"></i>0348-0358640
+                  </a>
+                </div>
+              </div>
+              <div id="passError" class="text-danger small mt-3 d-none">Incorrect password. Try again.</div>
+                                                                                              
+            
+            
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="quizSection" class="d-none">
+        <div class="main-content">
+          <div class="quiz-container">
+            <div class="row g-4 justify-content-center">
+              <div class="col-12">
+                <div class="card card-custom">
+                  <div class="card-body p-4">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                      <div id="qCounter" class="question-counter"><i class="bi bi-question-circle me-2"></i>Question 1/69</div>
+                      <div class="time-remaining">
+                        <i class="bi bi-clock"></i>
+                        <span id="timeRemaining">69:00</span>
+                      </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                      <div class="d-flex justify-content-between small mb-2">
+                        <span>Answered: <span id="progressText">0/69</span></span>
+                        <span class="text-muted">Progress</span>
+                      </div>
+                      <div class="progress progress-custom">
+                        <div id="progressBar" class="progress-bar-custom" style="width: 0%"></div>
+                      </div>
+                    </div>
+                    
+                    <hr class="my-4"/>
+                    
+                    <div id="questionText" class="question-text"></div>
+                    <div id="optionsContainer" class="mb-4"></div>
+
+                    <div class="d-flex justify-content-between align-items-center sticky-actions">
+                      <button id="prevBtn" class="btn btn-custom btn-outline-secondary" disabled>
+                        <i class="bi bi-chevron-left me-2"></i> Previous
+                      </button>
+                      <div class="d-flex gap-2">
+                        <button id="clearBtn" class="btn btn-custom btn-warning">
+                          <i class="bi bi-x-circle me-2"></i> Clear
+                        </button>
+                        <button id="nextBtn" class="btn btn-custom btn-primary">
+                          Next <i class="bi bi-arrow-right ms-2"></i>
+                        </button>
+                        <button id="submitBtn" class="btn btn-custom btn-success d-none">
+                          <i class="bi bi-send-check me-2"></i> Submit Quiz
+                        </button>
+                      </div>
+                    </div>
+                    
+                    <div class="mt-4">
+                      <h4 class="h6 mb-3">Question Palette</h4>
+                      <div class="question-palette">
+                        <div id="palette" class="d-flex"></div>
+                      </div>
+                      <div class="d-flex flex-wrap gap-2 mt-3 justify-content-center">
+                        <div class="legend-item">
+                          <div class="legend-color bg-primary"></div>
+                          <span><i class="bi bi-check-circle-fill me-1"></i>Answered</span>
+                        </div>
+                        <div class="legend-item">
+                          <div class="legend-color bg-secondary"></div>
+                          <span><i class="bi bi-eye-slash-fill me-1"></i>Not Visited</span>
+                        </div>
+                        <div class="legend-item">
+                          <div class="legend-color bg-light border"></div>
+                          <span><i class="bi bi-circle me-1"></i>Not Answered</span>
+                        </div>
+                        <div class="legend-item">
+                          <div class="legend-color bg-success"></div>
+                          <span><i class="bi bi-check-circle-fill me-1"></i>Correct</span>
+                        </div>
+                        <div class="legend-item">
+                          <div class="legend-color bg-danger"></div>
+                          <span><i class="bi bi-x-circle-fill me-1"></i>Incorrect</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="resultSection" class="d-none">
+        <div class="card card-custom mb-4">
+          <div class="card-body p-5">
+            <div class="text-center mb-5">
+              <div class="bg-primary bg-opacity-10 rounded-circle d-inline-flex p-4 mb-4">
+                <i class="bi bi-clipboard2-check text-primary fs-1"></i>
+              </div>
+              <h2 class="h3 mb-3"><i class="bi bi-award me-2"></i>Final Result</h2>
+              <p class="text-muted"><i class="bi bi-graph-up me-1"></i>Here's how you performed in the test</p>
+            </div>
+            
+            <div class="row g-4 mb-5">
+              <div class="col-6 col-md-3">
+                <div class="result-card bg-primary text-white">
+                  <div class="small mb-2">Obtained Marks</div>
+                  <div id="obtainedMarks" class="h1 fw-bold mb-0">0</div>
+                </div>
+              </div>
+              <div class="col-6 col-md-3">
+                <div class="result-card bg-secondary text-white">
+                  <div class="small mb-2">Total Marks</div>
+                  <div id="totalMarks" class="h1 fw-bold mb-0">69</div>
+                </div>
+              </div>
+              <div class="col-6 col-md-3">
+                <div class="result-card bg-info text-dark">
+                  <div class="small mb-2">Passing Marks</div>
+                  <div id="passingMarks" class="h1 fw-bold mb-0">35</div>
+                </div>
+              </div>
+              <div class="col-6 col-md-3">
+                <div id="statusCard" class="result-card">
+                  <div class="small mb-2">Status</div>
+                  <div id="statusText" class="h3 fw-bold mb-0">-</div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="d-flex flex-wrap justify-content-center gap-3">
+              <button id="reviewBtn" class="btn btn-custom btn-outline-primary">
+                <i class="bi bi-eye me-2"></i> Review Answers
+              </button>
+              <button id="restartBtn" class="btn btn-custom btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#confirmRestartModal">
+                <i class="bi bi-arrow-repeat me-2"></i> Restart Test
+              </button>
+              <button id="savePdfBtn" class="btn btn-custom btn-success">
+                <i class="bi bi-file-earmark-pdf me-2"></i> Save as PDF
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div id="reviewContainer" class="card card-custom d-none">
+          <div class="card-body p-4">
+            <h3 class="h4 mb-4">Answer Review</h3>
+            <div id="reviewList" class="vstack gap-3"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer-custom">
+      <div class="small"><i class="bi bi-mortarboard me-1"></i>Teaching License Mock Test • Made with ❤️ by <a href="https://mock-test-hub.netlify.app" style= "text-decoration: none; font-weight: 600; ">Mock Test Hub</a></div>
+    </footer>
+  </div>
+
+  <div class="modal fade" id="confirmSubmitModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header border-0 pb-0">
+          <h5 class="modal-title"><i class="bi bi-send-check me-2"></i>Submit Quiz?</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body pt-0">
+          Are you sure you want to submit your answers? You won't be able to change them after submission.
+        </div>
+        <div class="modal-footer border-0 pt-0">
+          <button type="button" class="btn btn-custom btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" id="confirmSubmitYes" class="btn btn-custom btn-success">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="confirmRestartModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header border-0 pb-0">
+          <h5 class="modal-title"><i class="bi bi-arrow-repeat me-2"></i>Restart Test?</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body pt-0">
+          This will reset your progress and timer. Do you want to restart?
+        </div>
+        <div class="modal-footer border-0 pt-0">
+          <button type="button" class="btn btn-custom btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" id="confirmRestartYes" class="btn btn-custom btn-danger">Restart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"
+  ></script>
+
+  <script>
+    // Wait for DOM to be fully loaded before initializing
+    $(document).ready(function() {
+      // Config
+      const PASSWORD = 'teachinglisencetest2025';
+      const TOTAL_QUESTIONS = 100;
+      const DURATION_MINUTES = 100; // minutes
+      const PASSING_MARKS = 50; // 50% of 100 questions
+
+      // State
+      let questions = [];
+      let currentIndex = 0;
+      let answers = new Array(TOTAL_QUESTIONS).fill(null); // stores selected option index (0..3) or null
+      let visited = new Array(TOTAL_QUESTIONS).fill(false);
+      let timerInterval = null;
+      let remainingSeconds = DURATION_MINUTES * 60;
+      let quizSubmitted = false;
+      
+
+
+      // Utility
+      const pad = (n) => (n < 10 ? '0' + n : '' + n);
+      function formatTime(sec) {
+        const m = Math.floor(sec / 60), s = sec % 60; return pad(m) + ':' + pad(s);
+      }
+
+      function generateQuestions() {
+        try {
+          // 100 individual questions with different types
+          const questionData = [
+            // Reading comprehension passage with questions (Q1-Q5)
+            {
+              type: 'passage',
+              passage: `<div class="passage-content p-4 mb-4 bg-light rounded-3 border border-primary">
+                <h4 class="mb-3">Reading Comprehension</h4>
+                <p class="lead mb-3">Passage:</p>
+                <p>"Technology has become an inseparable part of modern education. Classrooms are no longer limited to chalkboards and textbooks; instead, they are enriched with multimedia tools, online resources, and interactive learning platforms. While technology promotes creativity and collaboration, it also creates challenges such as over-reliance on screens and reduced personal interaction. Teachers are now required to balance traditional teaching with digital methods to achieve effective learning outcomes. The real test of education lies in using technology wisely without losing the human touch of teaching."</p>
+              </div>`,
+              questionText: 'According to the passage, what has replaced the traditional chalkboard in classrooms?',
+              options: ['Printed handouts', 'Multimedia and digital tools', 'Oral lectures', 'Group discussions'],
+              correct: 1
+            },
+            {
+              type: 'passage',
+              passage: `<div class="passage-content p-4 mb-4 bg-light rounded-3 border border-primary">
+                <h4 class="mb-3">Reading Comprehension</h4>
+                <p class="lead mb-3">Passage:</p>
+                <p>"Technology has become an inseparable part of modern education. Classrooms are no longer limited to chalkboards and textbooks; instead, they are enriched with multimedia tools, online resources, and interactive learning platforms. While technology promotes creativity and collaboration, it also creates challenges such as over-reliance on screens and reduced personal interaction. Teachers are now required to balance traditional teaching with digital methods to achieve effective learning outcomes. The real test of education lies in using technology wisely without losing the human touch of teaching."</p>
+              </div>`,
+              questionText: 'The author suggests that one major drawback of technology in education is:',
+              options: ['Lack of creativity', 'Reduced collaboration', 'Over-dependence on screens', 'Shortage of resources'],
+              correct: 2
+            },
+            {
+              type: 'passage',
+              passage: `<div class="passage-content p-4 mb-4 bg-light rounded-3 border border-primary">
+                <h4 class="mb-3">Reading Comprehension</h4>
+                <p class="lead mb-3">Passage:</p>
+                <p>"Technology has become an inseparable part of modern education. Classrooms are no longer limited to chalkboards and textbooks; instead, they are enriched with multimedia tools, online resources, and interactive learning platforms. While technology promotes creativity and collaboration, it also creates challenges such as over-reliance on screens and reduced personal interaction. Teachers are now required to balance traditional teaching with digital methods to achieve effective learning outcomes. The real test of education lies in using technology wisely without losing the human touch of teaching."</p>
+              </div>`,
+              questionText: 'Which of the following best represents the central idea of the passage?',
+              options: ['Technology has no place in modern education', 'Teachers should completely replace traditional teaching with technology', 'Effective education requires balancing technology with human teaching', 'Multimedia tools are the only solution to improve learning'],
+              correct: 2
+            },
+            {
+              type: 'passage',
+              passage: `<div class="passage-content p-4 mb-4 bg-light rounded-3 border border-primary">
+                <h4 class="mb-3">Reading Comprehension</h4>
+                <p class="lead mb-3">Passage:</p>
+                <p>"Technology has become an inseparable part of modern education. Classrooms are no longer limited to chalkboards and textbooks; instead, they are enriched with multimedia tools, online resources, and interactive learning platforms. While technology promotes creativity and collaboration, it also creates challenges such as over-reliance on screens and reduced personal interaction. Teachers are now required to balance traditional teaching with digital methods to achieve effective learning outcomes. The real test of education lies in using technology wisely without losing the human touch of teaching."</p>
+              </div>`,
+              questionText: 'The tone of the author in the passage is:',
+              options: ['Sarcastic', 'Balanced and reflective', 'Highly critical', 'Indifferent'],
+              correct: 1
+            },
+            {
+              type: 'passage',
+              passage: `<div class="passage-content p-4 mb-4 bg-light rounded-3 border border-primary">
+                <h4 class="mb-3">Reading Comprehension</h4>
+                <p class="lead mb-3">Passage:</p>
+                <p>"Technology has become an inseparable part of modern education. Classrooms are no longer limited to chalkboards and textbooks; instead, they are enriched with multimedia tools, online resources, and interactive learning platforms. While technology promotes creativity and collaboration, it also creates challenges such as over-reliance on screens and reduced personal interaction. Teachers are now required to balance traditional teaching with digital methods to achieve effective learning outcomes. The real test of education lies in using technology wisely without losing the human touch of teaching."</p>
+              </div>`,
+              questionText: 'The phrase "losing the human touch" in the passage refers to:',
+              options: ['Dependence on teachers', 'Absence of emotional connection in teaching', 'Lack of textbooks', 'Overuse of lectures'],
+              correct: 1
+            },
+            // English Grammar & Vocabulary (Q6-Q10)
+            {
+              text: 'The manager congratulated her ___ her outstanding performance.',
+              options: ['for', 'with', 'on', 'at'],
+              correct: 2
+            },
+            {
+              text: 'The book is divided ___ three main sections.',
+              options: ['into', 'in', 'on', 'at'],
+              correct: 0
+            },
+            {
+              text: 'Choose the word closest in meaning to "perseverance":',
+              options: ['Laziness', 'Determination', 'Doubt', 'Weakness'],
+              correct: 1
+            },
+            {
+              text: 'Select the opposite of "generous":',
+              options: ['Kind', 'Greedy', 'Helpful', 'Polite'],
+              correct: 1
+            },
+            {
+              text: 'Identify the part of the sentence that contains an error: "One of the players have not yet arrived for the practice session."',
+              options: ['One of the players', 'have not yet arrived (The subject "One" is singular and requires the verb "has")', 'for the practice session', 'No error'],
+              correct: 1
+            },
+            // Mathematics (Q11-Q18)
+            {
+              text: 'If a man\'s salary is increased by 20% and then decreased by 20%, his net loss is:',
+              options: ['0%', '2%', '4%', '5%'],
+              correct: 2
+            },
+            {
+              text: 'A shopkeeper bought an article for Rs. 1,200 and sold it at a gain of 15%. What was the selling price?',
+              options: ['Rs. 1,260', 'Rs. 1,320', 'Rs. 1,380', 'Rs. 1,400'],
+              correct: 2
+            },
+            {
+              type: 'math',
+              text: 'Simplify: $$\\frac{x}{5} - \\frac{2x}{3}$$',
+              options: ['$$\\frac{x}{2}$$', '$$\\frac{7}{2x}$$', '$$\\frac{2}{5x}$$', '$$-\\frac{7x}{15}$$'],
+              correct: 3
+            },
+            {
+              text: 'If (x+2)(x+3)=0, the roots of the equation are:',
+              options: ['-2, -3', '2, 3', '-2, 3', '2, -3'],
+              correct: 0
+            },
+            {
+              text: 'The sum of two numbers is 45, and their difference is 9. The numbers are:',
+              options: ['18 and 27', '19 and 26', '20 and 25', '21 and 24'],
+              correct: 0
+            },
+            {
+              text: 'If the radius of a circle is doubled, its area becomes:',
+              options: ['2 times', '3 times', '4 times', '8 times'],
+              correct: 2
+            },
+            {
+              text: 'The sum of the interior angles of a hexagon is:',
+              options: ['540°', '720°', '900°', '1080°'],
+              correct: 1
+            },
+            {
+              text: 'The length of a rectangle is twice its breadth. If its perimeter is 60 cm, the breadth is:',
+              options: ['10 cm', '15 cm', '20 cm', '25 cm'],
+              correct: 0
+            },
+            // General Science (Q19-Q30)
+            {
+              text: 'A train runs at 60 km/h. How long will it take to cover 180 km?',
+              options: ['2 hours', '2.5 hours', '3 hours', '3.5 hours'],
+              correct: 2
+            },
+            {
+              text: 'If the sides of a triangle are 6 cm, 8 cm, and 10 cm, the triangle is:',
+              options: ['Equilateral', 'Isosceles', 'Right-angled', 'Scalene'],
+              correct: 2
+            },
+            {
+              text: 'The opening and closing of stomata in leaves are controlled by:',
+              options: ['Xylem vessels', 'Phloem tissues', 'Palisade cells', 'Guard cells'],
+              correct: 3
+            },
+            {
+              text: 'Which organelle is responsible for producing energy in the form of ATP?',
+              options: ['Ribosome', 'Chloroplast', 'Mitochondrion', 'Endoplasmic reticulum'],
+              correct: 2
+            },
+            {
+              text: 'The atomic number of an element represents:',
+              options: ['Number of neutrons', 'Number of protons', 'Mass number', 'Valency'],
+              correct: 1
+            },
+            {
+              text: 'Which type of bond is formed by the sharing of electrons?',
+              options: ['Ionic bond', 'Metallic bond', 'Covalent bond', 'Hydrogen bond'],
+              correct: 2
+            },
+            {
+              text: 'Which gas is released when dilute hydrochloric acid reacts with zinc?',
+              options: ['Oxygen', 'Hydrogen', 'Nitrogen', 'Carbon dioxide'],
+              correct: 1
+            },
+            {
+              text: 'The unit of force in the SI system is:',
+              options: ['Joule', 'Watt', 'Newton', 'Pascal'],
+              correct: 2
+            },
+            {
+              text: 'If an object has a mass of 10 kg, what is its weight on Earth (g=9.8m/s²)?',
+              options: ['9.8 N', '49 N', '98 N', '100 N'],
+              correct: 2
+            },
+            {
+              text: 'Which vitamin is synthesized in the skin in the presence of sunlight?',
+              options: ['Vitamin A', 'Vitamin C', 'Vitamin D', 'Vitamin K'],
+              correct: 2
+            },
+            {
+              text: 'Which part of the human eye controls the amount of light entering?',
+              options: ['Retina', 'Iris', 'Lens', 'Cornea'],
+              correct: 1
+            },
+            {
+              text: 'The source of energy for green plants in photosynthesis is:',
+              options: ['Oxygen', 'Carbon dioxide', 'Sunlight', 'Water'],
+              correct: 2
+            },
+            // Sindhi & Urdu Grammar (Q31-Q40)
+            {
+              type: 'sindhi',
+              text: 'لفظ "جلدي" سان "پر" ڪهڙي قسم جو لفظ آهي؟ (In "jaldi san par", what part of speech is "par"?)',
+              options: ['حرف ندا', 'حرف جار (Preposition)', 'حرف عطف', 'حرف شرط'],
+              correct: 1
+            },
+            {
+              type: 'sindhi',
+              text: '"وڏا وَڻ وڍا آهن" پر لفظ "وڏا" ڪهڙي درجي جو آهي؟ (In "Big trees have been cut", what category is the word "big"?)',
+              options: ['اسم', 'صفت (Adjective)', 'ضمير', 'ظرف'],
+              correct: 1
+            },
+            {
+              type: 'sindhi',
+              text: 'لفظ "پاپ" ڪهڙي قسم جو اسم آهي؟ (What type of noun is the word "paap" (sin)?)',
+              options: ['اسم ذات', 'اسم مجرد (Abstract Noun)', 'اسم مشتق', 'اسم جمع'],
+              correct: 1
+            },
+            {
+              type: 'sindhi',
+              text: '"ڪير پڙهندو آهي؟" ۾ ضمير ڪهڙي قسم جو آهي؟ (In "Who is reading?", what type of pronoun is used?)',
+              options: ['سوال ضمير (Interrogative Pronoun)', 'شخصي ضمير', 'اشارتي ضمير', 'مالڪي ضمير'],
+              correct: 0
+            },
+            {
+              type: 'sindhi',
+              text: 'جملو "جيڪڏهن تون ايندين تہ مان ويندس" هي ڪهڙي قسم جو جملو آهي؟ (What kind of sentence is "If you come, then I will go"?)',
+              options: ['سادو جملو', 'مرڪب جملو', 'شرط وارو جملو (Conditional Sentence)', 'تعجبي جملو'],
+              correct: 2
+            },
+            {
+              type: 'urdu',
+              text: 'لفظ "چڱائي" ڪهڙي درجي مان نڪتل آهي؟ (From what category is the word "changaai" (goodness) derived?)',
+              options: ['اسم مجرد', 'اسم مشتق (Derived Noun)', 'اسم صوت', 'اسم صفت'],
+              correct: 1
+            },
+            {
+              type: 'urdu',
+              text: 'هو پڙهي رهيو آهي" هي جملو ڪهڙي صورت ۾ آهي؟ (What tense is the sentence "He is reading"?)',
+              options: ['ماضي استمراري', 'حال استمراري (Present Continuous)', 'مستقبل', 'ماضي معلوم'],
+              correct: 1
+            },
+            {
+              type: 'urdu',
+              text: 'لفظ "پنهنجو" ڪهڙي قسم جو ضمير آهي؟ (What type of pronoun is the word "panhinjo" (own)?)',
+              options: ['اشارتي ضمير', 'مالڪي ضمير (Possessive Pronoun)', 'سوال ضمير', 'شخصي ضمير'],
+              correct: 1
+            },
+            {
+              type: 'urdu',
+              text: '"بهترين پيرن" پر لفظ "بهترين" ڪهڙي قسم جو آهي؟ (In "best feet", what part of speech is "best"?)',
+              options: ['صفت (Adjective)', 'ظرف', 'ضمير', 'اسم'],
+              correct: 0
+            },
+            {
+              type: 'urdu',
+              text: '"پاڻي ميني آهي" هي جملو جو رخ ڪهڙو آهي؟ (What is the voice of the sentence "The water is measured"?)',
+              options: ['فعل معلوم رخ', 'فعل مجهول رخ (Passive Voice)', 'شرط رخ', 'تعجبي رخ'],
+              correct: 1
+            },
+            // Additional Sindhi & Urdu Grammar (Q41-Q50)
+            {
+              type: 'sindhi',
+              text: 'ڪس قاعدي جي تهت ٺاهي؟ "سورنورو ڏوڙ" لفظ؟ (Under which rule is the word "sor-noro-dor" formed?)',
+              options: ['مرڪب اضافي', 'مرڪب توصيفي (Descriptive Compound)', 'مرڪب عطفي', 'مرڪب خالي'],
+              correct: 1
+            },
+            {
+              type: 'sindhi',
+              text: 'جنهن فعل ڪي قسم هئڻ "تم ڪتاب پڙهي چڪا هئا"؟ (What is the tense of the verb in "You had read the book"?)',
+              options: ['فعل ماضي استمراري', 'فعل ماضي قريب', 'فعل ماضي بعيد (Past Perfect)', 'فعل حال مڪمل'],
+              correct: 2
+            },
+            {
+              type: 'sindhi',
+              text: 'ڪس چيز کي علامت هئڻ؟ "ڪي طرح" نہ "شير کي طرح بهادر" جملو. (What figure of speech is "like" in the phrase "brave like a lion"?)',
+              options: ['تشبيه (Simile)', 'استعاره', 'ڪنايه', 'اضافت'],
+              correct: 0
+            },
+            {
+              type: 'sindhi',
+              text: 'ڪس قسم ڪا مرڪب آهي؟ "ڪتاب خانہ" لفظ. (What type of compound word is "kutub-khana" (library)?)',
+              options: ['مرڪب اضافي (Possessive Compound)', 'مرڪب توصيفي', 'مرڪب عطفي', 'مرڪب خالي'],
+              correct: 0
+            },
+            {
+              type: 'sindhi',
+              text: 'ڪس قسم ڪا لفظ آهي؟ "خود" لفظ "هو خود هي ڪام ڪريا." (What type of word is "khud" (self) in "He himself did this work"?)',
+              options: ['اسم تاڪيدي ضمير (Emphatic Pronoun)', 'اشارتي ضمير', 'تعلقي ضمير', 'سوالي ضمير'],
+              correct: 0
+            },
+            {
+              type: 'urdu',
+              text: 'ڪيا اصل آهي "محبت" لفظ. (What is the root type of the word "mohabbat" (love)?)',
+              options: ['فعل', 'اسم مجرد (Abstract Noun)', 'اسم مشتق', 'صفت'],
+              correct: 1
+            },
+            {
+              type: 'urdu',
+              text: 'ڪس قسم ڪا جملو آهي؟ "ڪرونا آيو تهين ڪهي بہ نہ ڄائو." (What kind of sentence is "Corona came, so no one went anywhere"?)',
+              options: ['تجريدي', 'شرطيه (Conditional/Consequential)', 'تعجبي', 'استفهاميه'],
+              correct: 1
+            },
+            {
+              type: 'urdu',
+              text: 'ڪس درجہ ڪا لفظ آهي؟ "بزرگ" لفظ. (What category is the word "buzurg" (elder/great)?)',
+              options: ['اسم ذات', 'اسم صفت (Adjective)', 'اسم ذات', 'اسم صفت'],
+              correct: 1
+            },
+            {
+              type: 'urdu',
+              text: 'ڪس حالت ۾ آهي؟ "ڪتاب" لفظ "ڪتاب لڙڪي نے پڙهي." جملو. (In what case is the word "kitab" (book) in "The boy read the book"?)',
+              options: ['حالت رفعي', 'حالت نصبي (Accusative Case)', 'حالت جري'],
+              correct: 1
+            },
+            // Constructed Response Questions (Q51-Q64)
+            {
+              type: 'constructed',
+              text: 'Evaluate the effectiveness of behaviorist strategies (rewards and punishments) vs. humanistic approaches (self-directed learning) in improving student motivation. Under what classroom conditions would each be most effective?',
+              correct: null
+            },
+            {
+              type: 'constructed',
+              text: 'In a rural Pakistani community, parents resist sending girls to school. As a teacher, analyze this issue using sociological and cultural foundations of education and propose three realistic interventions that build trust between school and community.',
+              correct: null
+            },
+            {
+              type: 'constructed',
+              text: 'Compare teacher-centered and student-centered approaches in terms of developing higher-order thinking. Provide at least two examples where a student-centered approach fails without proper scaffolding.',
+              correct: null
+            },
+            {
+              type: 'constructed',
+              text: 'A teacher organizes group discussions, but only a few students dominate while others remain passive. Analyze the reasons and propose strategies to ensure equitable participation.',
+              correct: null
+            },
+            {
+              type: 'constructed',
+              text: 'In a diverse classroom, some students complete work early while others lag behind. Analyze two strategies a teacher can adopt to manage time and learning diversity effectively.',
+              correct: null
+            },
+            {
+              type: 'constructed',
+              text: 'Critically compare extrinsic motivation (rewards/punishments) with intrinsic motivation (self-interest/curiosity). Which is more sustainable in the Pakistani classroom context, and why?',
+              correct: null
+            },
+            {
+              type: 'constructed',
+              text: 'Compare the validity and reliability of teacher-made classroom tests vs. standardized assessments. Which is more suitable for formative feedback?',
+              correct: null
+            },
+            {
+              type: 'constructed',
+              text: 'Develop three Constructed Response Questions (CRQs) on the topic "Digestive System" by applying the Analysis level of Bloom\'s Taxonomy.',
+              correct: null
+            },
+            {
+              type: 'constructed',
+              text: 'Develop three Multiple Choice Questions (MCQs) on the topic "Pollution" by applying the Application level of Bloom\'s Taxonomy.',
+              correct: null
+            },
+            {
+              type: 'constructed',
+              text: 'Analyze how nature vs. nurture debates influence teachers\' perceptions of student potential. Suggest how teachers can balance both perspectives in lesson planning.',
+              correct: null
+            },
+            {
+              type: 'constructed',
+              text: 'Compare the effectiveness of goal-setting theory vs. self-determination theory in sustaining long-term student motivation.',
+              correct: null
+            },
+            {
+              type: 'constructed',
+              text: 'Compare the effectiveness of project-based learning vs. traditional teaching for developing students\' problem-solving skills in science.',
+              correct: null
+            },
+            {
+              type: 'constructed',
+              text: 'Compare how idealism and realism shape the role of the teacher in moral and cognitive development.',
+              correct: null
+            },
+            {
+              type: 'constructed',
+              text: 'A teacher uses rote memorization for science concepts. Analyze why this method is ineffective according to cognitivist principles.',
+              correct: null
+            },
+            // Additional MCQs (Q65-Q69)
+            {
+              text: 'Which of the following is NOT a characteristic of effective classroom management?',
+              options: ['Clear expectations', 'Inconsistent discipline', 'Positive relationships', 'Engaging instruction'],
+              correct: 1
+            },
+            {
+              text: 'The process of breaking down complex skills into smaller, teachable units is called:',
+              options: ['Scaffolding', 'Chunking', 'Differentiation', 'Assessment'],
+              correct: 1
+            },
+            {
+              text: 'Which learning theory emphasizes that people learn through observation and imitation?',
+              options: ['Behaviorism', 'Constructivism', 'Social Learning Theory', 'Cognitivism'],
+              correct: 2
+            },
+            {
+              text: 'Formative assessment is primarily used to:',
+              options: ['Grade students', 'Rank students', 'Improve teaching and learning', 'Compare schools'],
+              correct: 2
+            },
+            {
+              text: 'Inclusive education refers to:',
+              options: ['Teaching only gifted students', 'Separating students with disabilities', 'Educating all students in the same classroom', 'Providing private tutoring'],
+              correct: 2
+            },
+            {
+              text: 'Which of the following is a key principle of differentiated instruction?',
+              options: ['Providing the same learning materials to all students', 'Adapting teaching methods to meet diverse learning needs', 'Focusing only on standardized testing', 'Using a single assessment method for all students'],
+              correct: 1
+            },
+            {
+              text: 'According to Bloom\'s Taxonomy, which level involves students in making judgments about the value of ideas or materials?',
+              options: ['Understanding', 'Applying', 'Evaluating', 'Creating'],
+              correct: 2
+            },
+            // Additional English Grammar & Vocabulary (Q71-Q75)
+            {
+              text: 'Which of the following is a correct example of a complex sentence?',
+              options: ['She went to the market.', 'She went to the market and bought groceries.', 'Although it was raining, she went to the market.', 'Where did she go?'],
+              correct: 2
+            },
+            {
+              text: 'Identify the part of speech for the underlined word: "The book was lying \"under\" the table."',
+              options: ['Adverb', 'Preposition', 'Conjunction', 'Interjection'],
+              correct: 1
+            },
+            {
+              text: 'Choose the correct form of the verb: "If I \___\ a millionaire, I would travel around the world."',
+              options: ['am', 'was', 'were', 'have been'],
+              correct: 2
+            },
+            {
+              text: 'Which figure of speech is used in the sentence: "The wind whispered through the trees"?',
+              options: ['Metaphor', 'Simile', 'Personification', 'Hyperbole'],
+              correct: 2
+            },
+            {
+              text: 'What is the synonym of "benevolent"?',
+              options: ['Malevolent', 'Kind', 'Indifferent', 'Harsh'],
+              correct: 1
+            },
+            // Additional Mathematics (Q76-Q80)
+            {
+              text: 'If the ratio of boys to girls in a class is 3:2 and there are 30 students in total, how many boys are there?',
+              options: ['12', '15', '18', '20'],
+              correct: 2
+            },
+            {
+              type: 'math',
+              text: 'Solve for x: $$2x + 5 = 15$$',
+              options: ['x = 5', 'x = 10', 'x = 7.5', 'x = 15'],
+              correct: 0
+            },
+            {
+              text: 'What is the area of a triangle with base 10 cm and height 8 cm?',
+              options: ['20 cm²', '40 cm²', '80 cm²', '160 cm²'],
+              correct: 1
+            },
+            {
+              text: 'If the probability of an event is 0.75, what is the probability that it will not occur?',
+              options: ['0.25', '0.50', '0.75', '1.00'],
+              correct: 0
+            },
+            {
+              text: 'A car travels 120 km in 2 hours. What is its average speed?',
+              options: ['40 km/h', '50 km/h', '60 km/h', '70 km/h'],
+              correct: 2
+            },
+            // Additional General Science (Q81-Q85)
+            {
+              text: 'Which planet is known as the "Red Planet"?',
+              options: ['Venus', 'Mars', 'Jupiter', 'Saturn'],
+              correct: 1
+            },
+            {
+              text: 'What is the chemical symbol for gold?',
+              options: ['Go', 'Gd', 'Au', 'Ag'],
+              correct: 2
+            },
+            {
+              text: 'Which gas makes up about 78% of Earth\'s atmosphere?',
+              options: ['Oxygen', 'Carbon dioxide', 'Nitrogen', 'Hydrogen'],
+              correct: 2
+            },
+            {
+              text: 'What is the powerhouse of the cell?',
+              options: ['Nucleus', 'Ribosome', 'Mitochondria', 'Endoplasmic reticulum'],
+              correct: 2
+            },
+            {
+              text: 'Which of the following is a renewable source of energy?',
+              options: ['Coal', 'Natural gas', 'Solar power', 'Petroleum'],
+              correct: 2
+            },
+            // Additional Sindhi & Urdu Grammar (Q86-Q90)
+            {
+              type: 'sindhi',
+              text: 'لفظ "سج" ڪهڙي قسم جو اسم آهي؟ (What type of noun is the word "saj" (ornament)?)',
+              options: ['اسم ذات', 'اسم مجرد (Abstract Noun)', 'اسم مشتق', 'اسم جمع'],
+              correct: 1
+            },
+            {
+              type: 'sindhi',
+              text: '"سندس ڪتاب" ۾ لفظ "سندس" ڪهڙي قسم جو آهي؟ (In "sandis kitab", what type of word is "sandis"?)',
+              options: ['اشارتي ضمير', 'مالڪي ضمير (Possessive Pronoun)', 'سوالي ضمير', 'شخصي ضمير'],
+              correct: 1
+            },
+            {
+              type: 'urdu',
+              text: 'لفظ "پڑھنا" ڪهڙي قسم جو لفظ آهي؟ (What type of word is "parhna" (to read)?)',
+              options: ['اسم', 'فعل (Verb)', 'صفت', 'ظرف'],
+              correct: 1
+            },
+            {
+              type: 'urdu',
+              text: '"کاوش" لفظ ڪهڙي درجي مان آهي؟ (Which category does the word "kawash" (effort) belong to?)',
+              options: ['اسم ذات', 'اسم مجرد (Abstract Noun)', 'اسم مشتق', 'اسم صفت'],
+              correct: 1
+            },
+            {
+              type: 'urdu',
+              text: '"کتاب نے طالب علم کو سکھايو" جملو ۾ کو کيس چيز کي ظاهر ڪري ٿو؟ (In the sentence "The book taught the student", what does "ko" indicate?)',
+              options: ['فاعل', 'مفعول (Object)', 'ظرف', 'حال'],
+              correct: 1
+            },
+            // Educational Psychology (Q91-Q95)
+            {
+              text: 'According to Piaget\'s theory, which stage is characterized by the development of logical thinking and conservation skills?',
+              options: ['Sensorimotor', 'Preoperational', 'Concrete operational', 'Formal operational'],
+              correct: 2
+            },
+            {
+              text: 'Which learning theory emphasizes that learning occurs through association between stimuli and responses?',
+              options: ['Cognitivism', 'Constructivism', 'Behaviorism', 'Humanism'],
+              correct: 2
+            },
+            {
+              text: 'What is the term for the support given to learners to help them achieve tasks they cannot accomplish independently?',
+              options: ['Scaffolding', 'Chunking', 'Differentiation', 'Assessment'],
+              correct: 0
+            },
+            {
+              text: 'Which memory system has the largest capacity but shortest duration?',
+              options: ['Short-term memory', 'Long-term memory', 'Sensory memory', 'Working memory'],
+              correct: 2
+            },
+            {
+              text: 'According to Vygotsky, what is the term for the difference between what a learner can do without help and what they can achieve with guidance?',
+              options: ['Zone of Proximal Development', 'Cognitive Load', 'Schemas', 'Assimilation'],
+              correct: 0
+            },
+            // Classroom Management (Q96-Q100)
+            {
+              text: 'Which of the following is an effective strategy for managing disruptive behavior in the classroom?',
+              options: ['Ignoring all misbehavior completely', 'Establishing clear rules and consistent consequences', 'Punishing all students for one student\'s misbehavior', 'Allowing students to make their own rules'],
+              correct: 1
+            },
+            {
+              text: 'What is the primary purpose of a seating arrangement in classroom management?',
+              options: ['To make the classroom look organized', 'To minimize distractions and maximize learning opportunities', 'To separate friends from each other', 'To make it easier for the teacher to sit down'],
+              correct: 1
+            },
+            {
+              text: 'Which of the following best describes a proactive approach to classroom management?',
+              options: ['Reacting to problems after they occur', 'Preventing problems by creating a positive learning environment', 'Sending disruptive students to the principal\'s office', 'Ignoring minor misbehaviors'],
+              correct: 1
+            },
+            {
+              text: 'What is the recommended wait time after asking a question before calling on a student?',
+              options: ['1-2 seconds', '3-5 seconds', '10-15 seconds', '30 seconds'],
+              correct: 1
+            },
+            {
+              text: 'Which of the following is a key component of effective classroom routines?',
+              options: ['Changing routines frequently to keep students alert', 'Having unpredictable procedures to maintain flexibility', 'Establishing consistent, well-practiced procedures', 'Allowing students to decide classroom procedures each day'],
+              correct: 2
+            }
+          ];
+          
+
+
+          // Clear the questions array before populating
+          questions = [];
+          
+          for (let i = 0; i < TOTAL_QUESTIONS && i < questionData.length; i++) {
+            const qData = questionData[i];
+            
+
+            
+            // Add safety check for undefined question data
+            if (!qData) {
+              console.error(`Question data at index ${i} is undefined`);
+              continue;
+            }
+            
+            const q = {
+              id: i + 1,
+              text: qData.text ? `${i+1}. ${qData.text}` : (qData.questionText ? `${i+1}. ${qData.questionText}` : `${i+1}.`),
+              options: qData.options || [],
+              correct: qData.correct,
+              type: qData.type || 'mcq', // Default to mcq if no type specified
+              passage: qData.passage,
+              questionText: qData.questionText || qData.text || ''
+            };
+            questions.push(q);
+          }
+          
+
+          
+          return true; // Return true if successful
+        } catch (error) {
+          console.error("Error in generateQuestions:", error);
+          return false; // Return false if there was an error
+        }
+      }
+
+      function updateHeaderTimer() {
+        document.getElementById('timeRemaining').textContent = formatTime(remainingSeconds);
+      }
+
+      function startTimer() {
+        // Clear any existing timer
+        if (timerInterval) {
+          clearInterval(timerInterval);
+        }
+        
+        // Update timer immediately
+        updateHeaderTimer();
+        
+        // Set up the interval
+        timerInterval = setInterval(() => {
+          remainingSeconds--;
+          updateHeaderTimer();
+          if (remainingSeconds <= 0) {
+            clearInterval(timerInterval);
+            remainingSeconds = 0;
+            updateHeaderTimer();
+            if (!quizSubmitted) {
+              submitQuiz();
+            }
+          }
+        }, 1000);
+      }
+
+      function updateProgress() {
+        const answeredCount = answers.filter(a => a !== null && a !== '').length;
+        const percent = Math.round((answeredCount / TOTAL_QUESTIONS) * 100);
+        $('#progressText').text(`${answeredCount}/${TOTAL_QUESTIONS}`);
+        $('#progressBar').css('width', `${percent}%`).attr('aria-valuenow', percent);
+      }
+
+      function renderQuestion(index) {
+        // Safety check for valid index
+        if (index < 0 || index >= questions.length) return;
+        
+        const q = questions[index];
+        if (!q) return;
+        
+        visited[index] = true;
+        $('#qCounter').text(`Question ${index+1}/${TOTAL_QUESTIONS}`);
+        
+        // Handle different question types
+        if (q.type === 'passage') {
+          $('#questionText').html(q.passage || '');
+          $('#questionText').append(`<div class="mt-3 fw-bold">${q.questionText || ''}</div>`);
+        } else if (q.type === 'math') {
+          $('#questionText').html(`<div class="math-question">${q.text || ''}</div>`);
+        } else if (q.type === 'sindhi') {
+          $('#questionText').html(`<div class="sindhi-question">${q.text || ''}</div>`);
+        } else if (q.type === 'urdu') {
+          $('#questionText').html(`<div class="urdu-question">${q.text || ''}</div>`);
+        } else {
+          $('#questionText').html(q.text || '');
+        }
+        
+        const selected = answers[index];
+        const $opt = $('#optionsContainer');
+        $opt.empty();
+        
+        // Handle different question types
+        if (q.type === 'constructed') {
+          // For constructed response questions, show a textarea
+          $opt.append(`
+            <div class="constructed-response mb-3">
+              <label for="constructedResponse${q.id}" class="form-label fw-bold mb-2">Your Answer:</label>
+              <textarea id="constructedResponse${q.id}" class="form-control" rows="8" placeholder="Enter your detailed answer here...">${selected || ''}</textarea>
+              <div class="form-text mt-2">Please provide a comprehensive response to this question.</div>
+            </div>
+          `);
+          
+          // Add event listener for textarea
+          $(document).off('input', `#constructedResponse${q.id}`).on('input', `#constructedResponse${q.id}`, function() {
+            answers[index] = $(this).val();
+            updatePaletteStyles();
+            updateProgress();
+          });
+        } else if (q.options && q.options.length > 0) {
+          // Standard multiple choice questions
+          q.options.forEach((opt, i) => {
+            const id = `q${q.id}_opt${i}`;
+            const checked = selected === i ? 'checked' : '';
+            const selectedClass = selected === i ? 'selected' : '';
+            $opt.append(`
+              <div class="option-card w-100 d-flex align-items-start gap-3 ${selectedClass}">
+                <input type="radio" name="q${q.id}" id="${id}" value="${i}" class="mt-1 form-check-input" ${checked} />
+                <label for="${id}" class="flex-grow-1">${String.fromCharCode(65+i)}. ${opt}</label>
+              </div>
+            `);
+          });
+        }
+        
+        // For MCQs, add event listener for clicking the card
+        if (q.type !== 'constructed' && q.options && q.options.length > 0) {
+            $(document).off('click', `#optionsContainer .option-card`).on('click', `#optionsContainer .option-card`, function() {
+                const radioInput = $(this).find('input[type=radio]');
+                if (radioInput.length > 0) {
+                    radioInput.prop('checked', true).trigger('change');
+                }
+            });
+        }
+
+        // Buttons state
+        $('#prevBtn').prop('disabled', index === 0);
+        $('#nextBtn').toggleClass('d-none', index === TOTAL_QUESTIONS - 1);
+        $('#submitBtn').toggleClass('d-none', index !== TOTAL_QUESTIONS - 1);
+
+        // Render MathJax if present
+        if (typeof MathJax !== 'undefined') {
+          MathJax.typesetPromise();
+        }
+
+        // Palette update
+        updatePaletteStyles();
+        updateProgress();
+      }
+
+      function updatePaletteStyles(scoreMap) {
+        // scoreMap optional: {correct:Set, incorrect:Set}
+        $('#palette .palette-btn').each(function() {
+          const idx = parseInt($(this).data('index'));
+          $(this).removeClass('btn-primary btn-light btn-outline-secondary btn-success btn-danger border');
+          if (scoreMap) {
+            if (scoreMap.correct.has(idx)) $(this).addClass('btn-success');
+            else if (scoreMap.incorrect.has(idx)) $(this).addClass('btn-danger');
+            else if (answers[idx] !== null && answers[idx] !== '') $(this).addClass('btn-primary');
+            else if (!visited[idx]) $(this).addClass('btn-outline-secondary');
+            else $(this).addClass('btn-light border');
+          } else {
+            if (answers[idx] !== null && answers[idx] !== '') $(this).addClass('btn-primary');
+            else if (!visited[idx]) $(this).addClass('btn-outline-secondary');
+            else $(this).addClass('btn-light border');
+          }
+        });
+      }
+
+      function buildPalette() {
+        const $p = $('#palette');
+        $p.empty();
+        
+        for (let i = 0; i < TOTAL_QUESTIONS; i++) {
+          $p.append(`<button type="button" class="palette-btn btn-outline-secondary" data-index="${i}" data-bs-toggle="tooltip" data-bs-title="Go to Q${i+1}">${i+1}</button>`);
+        }
+        
+        // Initialize tooltips
+        setTimeout(() => {
+          document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(el => {
+            if (bootstrap && bootstrap.Tooltip) {
+              new bootstrap.Tooltip(el);
+            }
+          });
+        }, 100);
+      }
+
+      function goTo(index) {
+        if (index < 0 || index >= TOTAL_QUESTIONS) return;
+        currentIndex = index;
+        renderQuestion(currentIndex);
+      }
+
+      function submitQuiz() {
+        quizSubmitted = true;
+        clearInterval(timerInterval);
+
+        // Score
+        let score = 0;
+        const correctSet = new Set();
+        const incorrectSet = new Set();
+        for (let i = 0; i < TOTAL_QUESTIONS; i++) {
+          // For constructed questions, we can't automatically grade them
+          if (questions[i].type === 'constructed') {
+            // Mark as attempted if there's content
+            if (answers[i] && answers[i].trim() !== '') {
+              correctSet.add(i); // Mark as attempted
+            } else {
+              incorrectSet.add(i); // Mark as not attempted
+            }
+          } else {
+            // For MCQs, check if the answer is correct
+            if (answers[i] === null) continue;
+            if (answers[i] === questions[i].correct) {
+              score++;
+              correctSet.add(i);
+            } else {
+              incorrectSet.add(i);
+            }
+          }
+        }
+        const status = score >= PASSING_MARKS ? 'PASS' : 'FAIL';
+
+        // Populate result UI
+        $('#obtainedMarks').text(score);
+        $('#totalMarks').text(TOTAL_QUESTIONS);
+        $('#passingMarks').text(PASSING_MARKS);
+        $('#statusText').text(status);
+        
+        if (status === 'PASS') {
+          $('#statusCard').removeClass('bg-danger').addClass('pass-card');
+          $('#statusText').removeClass('text-danger').addClass('text-success');
+        } else {
+          $('#statusCard').removeClass('bg-success').addClass('fail-card');
+          $('#statusText').removeClass('text-success').addClass('text-danger');
+        }
+
+        // Update palette to show correctness
+        updatePaletteStyles({correct: correctSet, incorrect: incorrectSet});
+
+        // Build review list
+        const $review = $('#reviewList');
+        $review.empty();
+        for (let i = 0; i < TOTAL_QUESTIONS; i++) {
+          const q = questions[i];
+          const sel = answers[i];
+          
+          // Handle different question types for review
+          if (q.type === 'constructed') {
+            // For constructed questions
+            const badge = sel && sel.trim() !== '' ? '<span class="badge bg-success">Attempted</span>' : '<span class="badge bg-secondary">Not Attempted</span>';
+            const chosen = sel && sel.trim() !== '' ? sel : '-';
+            // Fix: Remove the duplicate "Q${i+1}." prefix since it's already in q.text
+            $review.append(`
+              <div class="border rounded-3 p-4 card-custom">
+                <div class="d-flex justify-content-between align-items-start gap-2 mb-3">
+                  <div class="fw-semibold">${q.text}</div>
+                  <div>${badge}</div>
+                </div>
+                <div class="mt-2 small"><strong>Your Answer:</strong></div>
+                <div class="mt-1 p-3 bg-light rounded">${chosen}</div>
+                <div class="mt-2 small text-muted"><em>Note: Constructed response questions are not automatically graded.</em></div>
+              </div>
+            `);
+          } else {
+            // For MCQs
+            const isCorrect = sel === q.correct;
+            const badge = sel === null ? '<span class="badge bg-secondary">Not Attempted</span>' : (isCorrect ? '<span class="badge bg-success">Correct</span>' : '<span class="badge bg-danger">Incorrect</span>');
+            const chosen = sel === null ? '-' : `${String.fromCharCode(65+sel)}. ${q.options[sel]}`;
+            const correct = `${String.fromCharCode(65+q.correct)}. ${q.options[q.correct]}`;
+            
+            // Handle passage questions
+            let questionText = q.text;
+            if (q.type === 'passage') {
+              questionText = q.questionText;
+            }
+            
+            $review.append(`
+              <div class="border rounded-3 p-4 card-custom">
+                <div class="d-flex justify-content-between align-items-start gap-2 mb-3">
+                  <div class="fw-semibold">Q${i+1}. ${questionText.replace(/^\d+\.\s*/, '')}</div>
+                  <div>${badge}</div>
+                </div>
+                <div class="mt-2 small"><strong>Your Answer:</strong> ${chosen}</div>
+                <div class="mt-1 small"><strong>Correct Answer:</strong> ${correct}</div>
+              </div>
+            `);
+          }
+        }
+
+        // Toggle sections
+        $('#quizSection').addClass('d-none');
+        $('#resultSection').removeClass('d-none');
+
+        // AJAX demo: pretend to save results
+        $.ajax({
+          url: 'https://httpbin.org/post',
+          method: 'POST',
+          contentType: 'application/json',
+          data: JSON.stringify({ score, total: TOTAL_QUESTIONS, status, timestamp: new Date().toISOString() })
+        }).done(() => {
+          console.log('Results saved (demo).');
+        }).fail(() => {
+          console.warn('Saving results failed (demo).');
+        });
+      }
+
+      function restartTest() {
+        console.log(`Restarting test with ${TOTAL_QUESTIONS} questions`);
+        // Reset state
+        answers = new Array(TOTAL_QUESTIONS).fill(null);
+        visited = new Array(TOTAL_QUESTIONS).fill(false);
+        currentIndex = 0;
+        remainingSeconds = DURATION_MINUTES * 60;
+        quizSubmitted = false;
+        $('#resultSection').addClass('d-none');
+        $('#reviewContainer').addClass('d-none');
+        $('#quizSection').removeClass('d-none');
+        updatePaletteStyles();
+        renderQuestion(0);
+        clearInterval(timerInterval);
+        startTimer();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      function savePdf() {
+        // Build a printable container with result + review
+        const clone = document.createElement('div');
+        clone.className = 'p-4';
+        clone.innerHTML = `
+          <h2 class="h4 mb-2">Teaching License Mock Test - Final Result</h2>
+          <div class="mb-3">Obtained: ${$('#obtainedMarks').text()} / ${TOTAL_QUESTIONS} | Passing: ${PASSING_MARKS} | Status: ${$('#statusText').text()}</div>
+          <hr/>
+          <h3 class="h6 mb-2">Answer Reviews</h3>
+          ${document.getElementById('reviewList').innerHTML}
+        `;
+        const opt = {
+          margin: 10,
+          filename: 'Teacher-License-Mock-Test-Result.pdf',
+          image: { type: 'jpeg', quality: 0.98 },
+          html2canvas: { scale: 2, useCORS: true },
+          jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+        };
+        html2pdf().set(opt).from(clone).save();
+      }
+
+      // Events
+      $(document).on('click', '#startBtn', function() {
+        const val = $('#passwordInput').val();
+        if (val === PASSWORD) {
+          $('#passError').addClass('d-none');
+          $('#passwordGate').addClass('d-none');
+          $('#quizSection').removeClass('d-none');
+          
+          // Clear and initialize questions array
+          questions = [];
+          
+          // Generate questions with error handling
+          const success = generateQuestions();
+          if (!success) {
+            alert("Error generating questions. Please try again.");
+            return;
+          }
+          
+          // Check if we have questions
+          if (questions.length === 0) {
+            alert("No questions loaded. Please try again.");
+            return;
+          }
+          
+
+          
+          // Build palette and render first question
+          buildPalette();
+          currentIndex = 0;
+          renderQuestion(0);
+          startTimer();
+          updateHeaderTimer(); // Ensure timer displays immediately
+        } else {
+          $('#passError').removeClass('d-none');
+        }
+      });
+
+      $(document).on('change', '#optionsContainer input[type=radio]', function() {
+        const val = parseInt($(this).val());
+        answers[currentIndex] = val;
+        // update visual selection
+        $('#optionsContainer .option-card').removeClass('selected');
+        $(this).closest('.option-card').addClass('selected');
+        updatePaletteStyles();
+        updateProgress();
+      });
+
+      $(document).on('click', '#prevBtn', function() { goTo(currentIndex - 1); });
+      $(document).on('click', '#nextBtn', function() { goTo(currentIndex + 1); });
+
+      // Use Bootstrap modal for submit confirmation
+      $(document).on('click', '#submitBtn', function() {
+        const modal = new bootstrap.Modal(document.getElementById('confirmSubmitModal'));
+        modal.show();
+      });
+      $(document).on('click', '#confirmSubmitYes', function() {
+        const modalEl = document.getElementById('confirmSubmitModal');
+        const modal = bootstrap.Modal.getInstance(modalEl);
+        modal.hide();
+        submitQuiz();
+      });
+
+      $(document).on('click', '#clearBtn', function() { 
+          answers[currentIndex] = null; 
+          renderQuestion(currentIndex); 
+      });
+
+      $(document).on('click', '#palette .palette-btn', function() {
+        const idx = parseInt($(this).data('index'));
+        goTo(idx);
+      });
+
+      $(document).on('click', '#reviewBtn', function() { $('#reviewContainer').toggleClass('d-none'); });
+      // Restart confirmation
+      $(document).on('click', '#confirmRestartYes', function() {
+        const modalEl = document.getElementById('confirmRestartModal');
+        const modal = bootstrap.Modal.getInstance(modalEl);
+        modal.hide();
+        restartTest();
+      });
+      $(document).on('click', '#savePdfBtn', function() { savePdf(); });
+
+      // Theme toggle
+      $('#themeToggle').on('click', function() {
+        document.documentElement.classList.toggle('dark');
+        const isDark = document.documentElement.classList.contains('dark');
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        $(this).html(isDark ? '<i class="bi bi-sun-fill"></i>' : '<i class="bi bi-moon-fill"></i>');
+      });
+
+      // Persist theme
+      (function() {
+        const saved = localStorage.getItem('theme');
+        if (saved === 'dark') {
+          document.documentElement.classList.add('dark');
+          $('#themeToggle').html('<i class="bi bi-sun-fill"></i>');
+        } else if (saved === 'light') {
+          document.documentElement.classList.remove('dark');
+          $('#themeToggle').html('<i class="bi bi-moon-fill"></i>');
+        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.classList.add('dark');
+          $('#themeToggle').html('<i class="bi bi-sun-fill"></i>');
+        }
+      })();
+
+      // Keyboard navigation
+      document.addEventListener('keydown', (e) => {
+        if ($('#quizSection').hasClass('d-none')) return;
+        console.log(`Key pressed: ${e.key}`);
+        if (e.key === 'ArrowRight') {
+          console.log('Next button triggered');
+          $('#nextBtn').trigger('click');
+        }
+        if (e.key === 'ArrowLeft') {
+          console.log('Previous button triggered');
+          $('#prevBtn').trigger('click');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
